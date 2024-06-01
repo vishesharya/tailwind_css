@@ -1,0 +1,24 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main  # Set this to the branch you want to trigger the deployment
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Upload to FTP server
+      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      with:
+        ftp-server: 'ftp://ns21-999.999servers.com'
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: './'  # Set this to the directory of your website files
+        server-dir: '/home/vishesha/domains/vishesharya.in/public_html'
+        git-ftp-args: '--insecure'  # Use if you face SSL issues
