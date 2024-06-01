@@ -20,5 +20,5 @@ jobs:
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
         local-dir: './'  # Set this to the directory of your website files
-        server-dir: '/home/vishesha/domains/vishesharya.in/public_html'
+        server-dir: public_html/tailwind_css
         git-ftp-args: '--insecure'  # Use if you face SSL issues
